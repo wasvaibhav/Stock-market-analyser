@@ -25,8 +25,8 @@ app.post("/predict", (req, res) => {
     let prediction = sum / k;
 
     let trend = prices[prices.length - 1] > prediction ?
-        "Downtrend" :
-        "Uptrend";
+        "Uptrend" :
+        "Downtrend";
 
     res.json({
         prediction: prediction.toFixed(2),

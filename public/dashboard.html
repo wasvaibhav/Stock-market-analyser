@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Stock Dashboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #0f172a;
+            color: white;
+        }
+        
+        header {
+            background: #020617;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .container {
+            padding: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #1e293b;
+        }
+        
+        th,
+        td {
+            padding: 15px;
+            text-align: center;
+        }
+        
+        th {
+            background: #020617;
+        }
+        
+        tr {
+            border-bottom: 1px solid #334155;
+        }
+        
+        .up {
+            color: #22c55e;
+        }
+        
+        .down {
+            color: #ef4444;
+        }
+        
+        button {
+            padding: 5px 10px;
+            background: #38bdf8;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .search {
+            margin-bottom: 20px;
+            padding: 10px;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        Stock Dashboard
+    </header>
+
+    <div class="container">
+
+        <input type="text" id="search" class="search" placeholder="Search stock..." onkeyup="searchStock()">
+
+        <table id="stockTable">
+            <tr>
+                <th>Stock</th>
+                <th>Price</th>
+                <th>Change</th>
+                <th>Trend</th>
+                <th>Action</th>
+            </tr>
+        </table>
+
+    </div>
+
+    <script>
+        let stocks = [{
+            name: "RELIANCE",
+            prices: [2400, 2420, 2450, 2500]
+        }, {
+            name: "TCS",
+            prices: [3500, 3480, 3490, 3510]
+        }, {
+            name: "INFY",
+            prices: [1500, 1510, 1520, 1535]
+        }, {
+            name: "HDFC",
+            prices: [1600, 1580, 1570, 1590]
+        }, {
+            name: "ITC",
+            prices: [420, 425, 430, 435]
+        }];
+
+        function calculateTrend(prices) {
+            let n = prices.length;
+
+            // DAA logic (simple comparison)
+            if (prices[n - 1] > prices[n - 2]) return " Up";
+            else return " Down";
+        }
+
+        function renderTable() {
+            let table = document.getElementById("stockTable");
+
+            for (let stock of stocks) {
+
+                let last = stock.prices[stock.prices.length - 1];
+                let prev = stock.prices[stock.prices.length - 2];
+
+                let change = ((last - prev) / prev * 100).toFixed(2);
+                let trend = calculateTrend(stock.prices);
+
+                let row = `
+            <tr>
+                <td>${stock.name}</td>
+                <td>${last}</td>
+                <td class="${change >= 0 ? 'up' : 'down'}">${change}%</td>
+                <td>${trend}</td>
+                <td><button onclick="viewStock('${stock.name}')">View</button></td>
+            </tr>
+        `;
+
+                table.innerHTML += row;
+            }
+        }
+
+        function searchStock() {
+            let input = document.getElementById("search").value.toUpperCase();
+            let rows = document.getElementById("stockTable").getElementsByTagName("tr");
+
+            for (let i = 1; i < rows.length; i++) {
+                let stockName = rows[i].getElementsByTagName("td")[0].innerText;
+
+                if (stockName.indexOf(input) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+
+        function viewStock(name) {
+            alert("Opening prediction for " + name);
+            window.location.href = "index.html"; // go to prediction page
+        }
+
+        renderTable();
+    </script>
+
+</body>
+
+</html>

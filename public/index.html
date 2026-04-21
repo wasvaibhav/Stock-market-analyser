@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>StockVision - Prediction System</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #0f172a;
+            color: white;
+        }
+        
+        header {
+            background: #020617;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            background: #020617;
+            padding: 10px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 50px;
+        }
+        
+        .hero h1 {
+            font-size: 40px;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 30px;
+        }
+        
+        .card {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            width: 100%;
+            background: #22c55e;
+            border: none;
+            color: black;
+            font-weight: bold;
+        }
+        
+        .result {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #020617;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        StockVision - Market Predictor
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Predict</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="#">About</a>
+    </nav>
+
+    <section class="hero">
+        <h1>Predict Stock Prices Smartly</h1>
+        <p>Using DAA-based algorithms for trend analysis</p>
+    </section>
+
+    <div class="container">
+
+        <!-- Prediction Card -->
+        <div class="card">
+            <h2> Predict Price</h2>
+
+            <input type="text" id="prices" placeholder="Enter prices (100,105,110)">
+            <input type="number" id="k" placeholder="Window size (k)">
+
+            <button onclick="predict()">Predict</button>
+
+            <div class="result" id="result"></div>
+        </div>
+
+        <!-- Info Card -->
+        <div class="card">
+            <h2> Algorithm Used</h2>
+            <p>Sliding Window Technique</p>
+            <p>Time Complexity: O(n)</p>
+            <p>Uses recent data for prediction</p>
+        </div>
+
+    </div>
+
+
+
+    <script>
+        async function predict() {
+            let prices = document.getElementById("prices").value.split(',').map(Number);
+            let k = parseInt(document.getElementById("k").value);
+
+            if (prices.length < k || k <= 0) {
+                document.getElementById("result").innerText = "Invalid input!";
+                return;
+            }
+
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        prices,
+                        k
+                    }),
+                });
+
+                const data = await response.json();
+
+                if (data.error) {
+                    document.getElementById("result").innerText = data.error;
+                } else {
+                    document.getElementById("result").innerText =
+                        "Prediction: " + data.prediction + " | Trend: " + data.trend;
+                }
+            } catch (error) {
+                document.getElementById("result").innerText = "Error: " + error.message;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
