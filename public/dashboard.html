@@ -91,21 +91,121 @@
 
     <script>
         let stocks = [{
-            name: "RELIANCE",
-            prices: [2400, 2420, 2450, 2500]
-        }, {
-            name: "TCS",
-            prices: [3500, 3480, 3490, 3510]
-        }, {
-            name: "INFY",
-            prices: [1500, 1510, 1520, 1535]
-        }, {
-            name: "HDFC",
-            prices: [1600, 1580, 1570, 1590]
-        }, {
-            name: "ITC",
-            prices: [420, 425, 430, 435]
-        }];
+                name: "TCS",
+                prices: [3500, 3480, 3490, 3510]
+            }, {
+                name: "INFY",
+                prices: [1500, 1510, 1520, 1535]
+            }, {
+                name: "HDFC",
+                prices: [1600, 1580, 1570, 1590]
+            }, {
+                name: "ITC",
+                prices: [420, 425, 430, 435]
+            },
+
+            {
+                name: "WIPRO",
+                prices: [420, 430, 440, 450]
+            }, {
+                name: "HCLTECH",
+                prices: [1100, 1120, 1130, 1150]
+            }, {
+                name: "SBIN",
+                prices: [600, 610, 620, 630]
+            }, {
+                name: "AXISBANK",
+                prices: [900, 910, 920, 940]
+            }, {
+                name: "ICICIBANK",
+                prices: [950, 960, 970, 990]
+            },
+
+            {
+                name: "KOTAKBANK",
+                prices: [1800, 1820, 1840, 1860]
+            }, {
+                name: "LT",
+                prices: [2900, 2920, 2950, 2980]
+            }, {
+                name: "BAJFINANCE",
+                prices: [7000, 7100, 7200, 7350]
+            }, {
+                name: "MARUTI",
+                prices: [10000, 10100, 10250, 10400]
+            }, {
+                name: "TITAN",
+                prices: [3000, 3050, 3100, 3200]
+            },
+
+            {
+                name: "ADANIENT",
+                prices: [2500, 2550, 2600, 2700]
+            }, {
+                name: "ADANIPORTS",
+                prices: [800, 820, 840, 860]
+            }, {
+                name: "ULTRACEMCO",
+                prices: [8500, 8600, 8700, 8850]
+            }, {
+                name: "ASIANPAINT",
+                prices: [3200, 3250, 3300, 3400]
+            }, {
+                name: "NESTLEIND",
+                prices: [22000, 22100, 22250, 22400]
+            },
+
+            {
+                name: "POWERGRID",
+                prices: [220, 225, 230, 235]
+            }, {
+                name: "NTPC",
+                prices: [300, 305, 310, 320]
+            }, {
+                name: "ONGC",
+                prices: [180, 185, 190, 200]
+            }, {
+                name: "COALINDIA",
+                prices: [250, 255, 260, 270]
+            }, {
+                name: "BPCL",
+                prices: [450, 460, 470, 480]
+            },
+
+            {
+                name: "HEROMOTOCO",
+                prices: [2800, 2850, 2900, 3000]
+            }, {
+                name: "EICHERMOT",
+                prices: [3500, 3550, 3600, 3700]
+            }, {
+                name: "TATAMOTORS",
+                prices: [800, 820, 850, 880]
+            }, {
+                name: "TATASTEEL",
+                prices: [120, 125, 130, 140]
+            }, {
+                name: "JSWSTEEL",
+                prices: [700, 710, 720, 740]
+            },
+
+            {
+                name: "TECHM",
+                prices: [1200, 1210, 1220, 1250]
+            }, {
+                name: "DRREDDY",
+                prices: [5500, 5600, 5700, 5800]
+            }, {
+                name: "SUNPHARMA",
+                prices: [1100, 1120, 1150, 1180]
+            }, {
+                name: "CIPLA",
+                prices: [1000, 1010, 1020, 1040]
+            }, {
+                name: "DIVISLAB",
+                prices: [4000, 4050, 4100, 4200]
+            }
+        ];
 
         function calculateTrend(prices) {
             let n = prices.length;
@@ -157,7 +257,7 @@
 
         function viewStock(name) {
             alert("Opening prediction for " + name);
-            window.location.href = "index.html"; // go to prediction page
+            console.log("Opening prediction for", stockName);
         }
 
         renderTable();
