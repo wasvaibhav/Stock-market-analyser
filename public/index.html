@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StockVision - Prediction System</title>
 
     <style>
@@ -36,8 +38,8 @@
             backdrop-filter: blur(5px);
             padding: 20px;
             text-align: center;
-            font-size: 24px;
-            font-weight: 700;
+            font-size: 36px;
+            font-weight: 800;
             letter-spacing: 0.5px;
             border-bottom: 1px solid rgba(148, 163, 184, 0.2);
         }
@@ -86,12 +88,14 @@
             padding: 20px;
             border-radius: 14px;
             box-shadow: 0 12px 24px rgba(2, 6, 23, 0.25);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            transition: transform 0.22s cubic-bezier(.2,.9,.2,1), box-shadow 0.22s ease;
+            will-change: transform, box-shadow;
         }
 
         .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 16px 30px rgba(2, 6, 23, 0.32);
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 24px 48px rgba(2, 6, 23, 0.45);
+            z-index: 2;
         }
 
         label {
@@ -222,6 +226,23 @@
             font-size: 13px;
         }
 
+        /* About section styles */
+        .about { padding: 28px 0; background: linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.85)); }
+        .about .container { max-width: 1100px; margin: 0 auto; }
+        .about h2 { text-align:center; margin:0 0 10px 0; color:var(--text); font-size:22px }
+        /* About section removed per user request */
+        .about .muted { text-align:center; color:#9fb1c9; margin-top:12px }
+
+        /* About section on home */
+        .about { padding: 28px 0; background: linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.85)); }
+        .about h2 { text-align: center; margin: 0 0 10px 0; color: var(--text); font-size: 22px; }
+        .about p { max-width: 900px; margin: 6px auto; color: var(--muted); text-align: center; }
+        .about-grid { display:flex; gap:12px; justify-content:center; margin-top:16px; flex-wrap:wrap; }
+        .about-card { background: linear-gradient(180deg, rgba(18,35,58,0.6), rgba(25,50,79,0.6)); padding:8px; border-radius:8px; width:260px; }
+        .about-card img { width:100%; height:140px; object-fit:cover; border-radius:6px; display:block; }
+        .about-card .caption { color: #9fb1c9; font-size:13px; margin-top:8px; text-align:center; }
+        .about .muted { text-align:center; color:#9fb1c9; margin-top:12px }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -241,12 +262,11 @@
         <a href="#">Home</a>
         <a href="#">Predict</a>
         <a href="dashboard.html">Dashboard</a>
-        <a href="#">About</a>
+        <a href="#about">About</a>
     </nav>
 
     <section class="hero">
         <h1>Predict Price, Trend and Action</h1>
-        <p>Select a company, choose your mode, and generate a 7-day smart forecast.</p>
     </section>
 
     <div class="container">
@@ -288,6 +308,12 @@
     <footer>
         StockVision demo uses mock market data.
     </footer>
+
+    <section class="about" id="about">
+        <div class="container">
+            <!-- About section removed as requested -->
+        </div>
+    </section>
 
     <script>
         let stockData = [];

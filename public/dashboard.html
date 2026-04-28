@@ -66,6 +66,8 @@
             padding: 10px;
             width: 300px;
         }
+
+        /* (About section removed from dashboard - moved to home) */
     </style>
 </head>
 
@@ -85,9 +87,10 @@
                 <th>Price</th>
                 <th>Change</th>
                 <th>Trend</th>
-                <th>Action</th>
             </tr>
         </table>
+
+        <!-- About section moved to home page -->
 
     </div>
 
@@ -234,7 +237,6 @@
                 <td>${last}</td>
                 <td class="${change >= 0 ? 'up' : 'down'}">${change}%</td>
                 <td>${trend}</td>
-                <td><button onclick="viewStock('${stock.name}')">View</button></td>
             </tr>
         `;
 
@@ -257,10 +259,7 @@
             }
         }
 
-        function viewStock(name) {
-            alert("Opening prediction for " + name);
-            console.log("Opening prediction for", stockName);
-        }
+        // viewStock removed (View button removed from dashboard)
 
         renderTable();
     </script>
