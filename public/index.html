@@ -7,7 +7,7 @@
     <title>StockVision - Prediction System</title>
 
     <style>
-        :root {
+         :root {
             --bg: #08121f;
             --panel: #12233a;
             --panel-soft: #19324f;
@@ -19,11 +19,11 @@
             --bad: #f87171;
             --mid: #facc15;
         }
-
+        
         * {
             box-sizing: border-box;
         }
-
+        
         body {
             margin: 0;
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -31,7 +31,7 @@
             background: radial-gradient(circle at top right, #1f3b5a 0%, var(--bg) 50%, #04080f 100%);
             min-height: 100vh;
         }
-
+        
         header {
             background: rgba(2, 6, 23, 0.85);
             -webkit-backdrop-filter: blur(5px);
@@ -43,7 +43,7 @@
             letter-spacing: 0.5px;
             border-bottom: 1px solid rgba(148, 163, 184, 0.2);
         }
-
+        
         nav {
             display: flex;
             justify-content: center;
@@ -51,28 +51,28 @@
             background: rgba(2, 6, 23, 0.7);
             padding: 10px;
         }
-
+        
         nav a {
             color: var(--text);
             text-decoration: none;
             font-size: 14px;
         }
-
+        
         .hero {
             text-align: center;
             padding: 40px 20px 10px;
         }
-
+        
         .hero h1 {
             margin: 0;
             font-size: clamp(30px, 6vw, 44px);
         }
-
+        
         .hero p {
             color: var(--muted);
             margin-top: 10px;
         }
-
+        
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -81,30 +81,30 @@
             max-width: 1100px;
             margin: 0 auto;
         }
-
+        
         .card {
             background: linear-gradient(180deg, var(--panel) 0%, var(--panel-soft) 100%);
             border: 1px solid rgba(248, 250, 252, 0.12);
             padding: 20px;
             border-radius: 14px;
             box-shadow: 0 12px 24px rgba(2, 6, 23, 0.25);
-            transition: transform 0.22s cubic-bezier(.2,.9,.2,1), box-shadow 0.22s ease;
+            transition: transform 0.22s cubic-bezier(.2, .9, .2, 1), box-shadow 0.22s ease;
             will-change: transform, box-shadow;
         }
-
+        
         .card:hover {
             transform: translateY(-8px) scale(1.03);
             box-shadow: 0 24px 48px rgba(2, 6, 23, 0.45);
             z-index: 2;
         }
-
+        
         label {
             display: block;
             font-size: 13px;
             margin-top: 10px;
             color: var(--muted);
         }
-
+        
         select,
         input {
             width: 100%;
@@ -115,7 +115,7 @@
             background: rgba(15, 23, 42, 0.8);
             color: var(--text);
         }
-
+        
         button {
             margin-top: 16px;
             padding: 11px;
@@ -128,11 +128,11 @@
             cursor: pointer;
             transition: transform 0.2s ease;
         }
-
+        
         button:hover {
             transform: translateY(-1px);
         }
-
+        
         .result {
             margin-top: 14px;
             background: rgba(2, 6, 23, 0.5);
@@ -141,13 +141,13 @@
             padding: 12px;
             min-height: 100px;
         }
-
+        
         .result h3,
         .result h4,
         .result p {
             margin: 8px 0;
         }
-
+        
         .badge {
             display: inline-block;
             padding: 3px 8px;
@@ -155,27 +155,27 @@
             font-size: 12px;
             font-weight: 700;
         }
-
+        
         .good {
             background: rgba(52, 211, 153, 0.18);
             color: var(--good);
         }
-
+        
         .bad {
             background: rgba(248, 113, 113, 0.2);
             color: var(--bad);
         }
-
+        
         .mid {
             background: rgba(250, 204, 21, 0.2);
             color: var(--mid);
         }
-
+        
         .list {
             margin: 8px 0 0;
             padding-left: 20px;
         }
-
+        
         .chart-wrap {
             margin-top: 8px;
             border-radius: 12px;
@@ -183,13 +183,13 @@
             border: 1px solid rgba(148, 163, 184, 0.22);
             padding: 10px;
         }
-
+        
         .chart {
             width: 100%;
             height: 270px;
             display: block;
         }
-
+        
         .legend {
             display: flex;
             flex-wrap: wrap;
@@ -198,51 +198,113 @@
             color: var(--muted);
             font-size: 13px;
         }
-
+        
         .legend span {
             display: inline-flex;
             align-items: center;
             gap: 6px;
         }
-
+        
         .swatch {
             width: 12px;
             height: 12px;
             border-radius: 3px;
             display: inline-block;
         }
-
+        
         .swatch.price {
             background: #38bdf8;
         }
-
+        
         .swatch.reg {
             background: #f59e0b;
         }
-
+        
         .chart-note {
             margin-top: 8px;
             color: var(--muted);
             font-size: 13px;
         }
-
-        /* About section styles */
-        .about { padding: 28px 0; background: linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.85)); }
-        .about .container { max-width: 1100px; margin: 0 auto; }
-        .about h2 { text-align:center; margin:0 0 10px 0; color:var(--text); font-size:22px }
+        
+        .about {
+            padding: 28px 0;
+            background: linear-gradient(180deg, rgba(2, 6, 23, 0.6), rgba(2, 6, 23, 0.85));
+        }
+        
+        .about .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .about h2 {
+            text-align: center;
+            margin: 0 0 10px 0;
+            color: var(--text);
+            font-size: 22px
+        }
         /* About section removed per user request */
-        .about .muted { text-align:center; color:#9fb1c9; margin-top:12px }
-
-        /* About section on home */
-        .about { padding: 28px 0; background: linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.85)); }
-        .about h2 { text-align: center; margin: 0 0 10px 0; color: var(--text); font-size: 22px; }
-        .about p { max-width: 900px; margin: 6px auto; color: var(--muted); text-align: center; }
-        .about-grid { display:flex; gap:12px; justify-content:center; margin-top:16px; flex-wrap:wrap; }
-        .about-card { background: linear-gradient(180deg, rgba(18,35,58,0.6), rgba(25,50,79,0.6)); padding:8px; border-radius:8px; width:260px; }
-        .about-card img { width:100%; height:140px; object-fit:cover; border-radius:6px; display:block; }
-        .about-card .caption { color: #9fb1c9; font-size:13px; margin-top:8px; text-align:center; }
-        .about .muted { text-align:center; color:#9fb1c9; margin-top:12px }
-
+        
+        .about .muted {
+            text-align: center;
+            color: #9fb1c9;
+            margin-top: 12px
+        }
+        
+        .about {
+            padding: 28px 0;
+            background: linear-gradient(180deg, rgba(2, 6, 23, 0.6), rgba(2, 6, 23, 0.85));
+        }
+        
+        .about h2 {
+            text-align: center;
+            margin: 0 0 10px 0;
+            color: var(--text);
+            font-size: 22px;
+        }
+        
+        .about p {
+            max-width: 900px;
+            margin: 6px auto;
+            color: var(--muted);
+            text-align: center;
+        }
+        
+        .about-grid {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .about-card {
+            background: linear-gradient(180deg, rgba(18, 35, 58, 0.6), rgba(25, 50, 79, 0.6));
+            padding: 8px;
+            border-radius: 8px;
+            width: 260px;
+        }
+        
+        .about-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+        }
+        
+        .about-card .caption {
+            color: #9fb1c9;
+            font-size: 13px;
+            margin-top: 8px;
+            text-align: center;
+        }
+        
+        .about .muted {
+            text-align: center;
+            color: #9fb1c9;
+            margin-top: 12px
+        }
+        
         footer {
             text-align: center;
             padding: 20px;
@@ -311,7 +373,6 @@
 
     <section class="about" id="about">
         <div class="container">
-            <!-- About section removed as requested -->
         </div>
     </section>
 
