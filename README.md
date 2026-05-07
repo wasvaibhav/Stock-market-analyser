@@ -8,7 +8,7 @@ The project allows users to:
 - View stock dashboard data
 - Understand algorithm-based prediction systems
 
-Built using Node.js, Express.js, HTML, CSS, and JavaScript. :contentReference[oaicite:0]{index=0}
+Built using Node.js, Express.js, HTML, CSS, and JavaScript.
 
 ---
 
@@ -36,8 +36,6 @@ Built using Node.js, Express.js, HTML, CSS, and JavaScript. :contentReference[oa
 - Express.js
 - CORS
 
-Dependencies used in project: :contentReference[oaicite:1]{index=1}
-
 ---
 
 # 📂 Project Structure
@@ -58,16 +56,17 @@ StockVision/
 ├── server.js
 ├── package.json
 └── package-lock.json
+```
 
-'''
 ---
- 
 
 # 👨‍💻 Author
 
-## Rishi Kaira
+## Vaibhav Kaira
 - Full Stack Developer
 - Backend & Algorithm Implementation
+
+---
 
 # 🤝 Contributors
 
@@ -81,3 +80,5 @@ StockVision/
 
 ## Samriddhi
 - Sliding Window Algorithm Logic
+
+---
