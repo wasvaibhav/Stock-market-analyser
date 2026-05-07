@@ -58,3 +58,22 @@ StockVision/
 ├── server.js
 ├── package.json
 └── package-lock.json
+
+# 👨‍💻 Author
+
+## Rishi Kaira
+- Full Stack Developer
+- Backend & Algorithm Implementation
+
+# 🤝 Contributors
+
+## Vikas Dhanak
+- Frontend Design
+- UI Development
+- Dashboard Implementation
+
+## Piyush Palariya
+- API Integration
+
+## Samriddhi 
+- Sliding Window Algorithm Logic
