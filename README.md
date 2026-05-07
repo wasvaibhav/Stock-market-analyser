@@ -59,6 +59,10 @@ StockVision/
 ├── package.json
 └── package-lock.json
 
+'''
+---
+ 
+
 # 👨‍💻 Author
 
 ## Rishi Kaira
@@ -75,5 +79,5 @@ StockVision/
 ## Piyush Palariya
 - API Integration
 
-## Samriddhi 
+## Samriddhi
 - Sliding Window Algorithm Logic
